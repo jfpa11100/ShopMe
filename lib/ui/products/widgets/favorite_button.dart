@@ -17,20 +17,20 @@ class FavoriteButton extends StatefulWidget {
 }
 
 class _FavoriteButtonState extends State<FavoriteButton> {
-  var isFavorite = false;
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
-    var boxShadow = BoxShadow(
+    final boxShadow = BoxShadow(
       color: const Color(0xFF9B9B9B),
-      blurRadius: widget.parentWidth * 0.001,
+      blurRadius: widget.parentWidth * 0.0001,
       spreadRadius: widget.parentWidth * 0.001,
       offset: Offset(0, widget.parentWidth * 0.005),
     );
 
     return Container(
-      width: widget.parentWidth * 0.24,
-      height: widget.parentHeight * 0.14,
+      width: widget.parentWidth * 0.22,
+      height: widget.parentHeight * 0.13,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: const Color(0xFFFFFFFF),

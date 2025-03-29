@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/products/favorite_button.dart';
+import 'package:myapp/ui/products/widgets/favorite_button.dart';
 import 'package:myapp/models/product.dart';
+import 'package:myapp/ui/products/pages/product_detail_view.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -15,11 +16,14 @@ class ProductItem extends StatelessWidget {
       child: LayoutBuilder(
         builder: (_, constraints) {
           return InkWell(
-            // onTap: () => Navigator.pushNamed(
-            //     context, ProductDetailView.routeName,
-            //     arguments: product.id),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductDetailView(product: product,)),
+              );
+            },
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Flexible(
                   flex: 1,
@@ -32,15 +36,15 @@ class ProductItem extends StatelessWidget {
                           tag: product.id,
                           child: Image.network(
                             product.images[0],
-                            width: constraints.maxWidth * 1.00,
-                            height: constraints.maxHeight * 0.71,
+                            width: constraints.maxWidth * 0.92,
+                            height: constraints.maxHeight * 0.75,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
                       Positioned(
                         left: constraints.maxWidth / 1.32,
-                        top: constraints.maxHeight / 1.59,
+                        top: constraints.maxHeight / 1.56,
                         child: FavoriteButton(
                           parentWidth: constraints.maxWidth,
                           parentHeight: constraints.maxHeight,
@@ -84,14 +88,5 @@ class ProductItem extends StatelessWidget {
         },
       ),
     );
-  }
-}
-
-class ProductDetailView extends StatelessWidget {
-  const ProductDetailView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Placeholder();
   }
 }
