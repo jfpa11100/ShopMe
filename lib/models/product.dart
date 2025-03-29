@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:myapp/models/category.dart';
 
 List<Product> productsFromJson(String str) {
