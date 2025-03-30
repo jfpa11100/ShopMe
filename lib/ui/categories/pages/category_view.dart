@@ -10,10 +10,9 @@ class CategoryView extends StatefulWidget {
 }
 
 class _CategoryViewState extends State<CategoryView> {
-  late final Category category;
-  
   @override
   Widget build(BuildContext context) {
+    Category category = widget.category;
     return Center(child: Text('Category View of $category.name'));
   }
 }

@@ -177,16 +177,19 @@ class ProductTitlePrice extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          product.title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            overflow: TextOverflow.ellipsis,
-            leadingDistribution: TextLeadingDistribution.even,
+        Expanded(
+          child: Text(
+            product.title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+            maxLines: 2,
+            overflow: TextOverflow.visible,
           ),
         ),
+        const SizedBox(width: 20),
         Text(
           '\$ ${product.price.toString()}',
           style: TextStyle(
