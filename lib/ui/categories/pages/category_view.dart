@@ -10,7 +10,6 @@ class CategoryView extends StatefulWidget {
 }
 
 class _CategoryViewState extends State<CategoryView> {
-  
   @override
   Widget build(BuildContext context) {
     Category category = widget.category;
