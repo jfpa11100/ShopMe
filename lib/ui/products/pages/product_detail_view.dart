@@ -108,15 +108,25 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                             horizontal: 15,
                           ),
                           child: SizedBox(
-                            height: 250,
-                            child: Center(
-                              child: Text(
-                                product.description,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
+                            height: 230,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Description',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ),
                                 ),
-                              ),
+                                Text(
+                                  product.description,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         );
@@ -130,7 +140,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
           SizedBox(
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 5.0,
+              ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromRGBO(214, 243, 162, 1),
