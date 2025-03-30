@@ -108,7 +108,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                             horizontal: 15,
                           ),
                           child: SizedBox(
-                            height: 230,
+                            height: 250,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -117,6 +117,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Text(
