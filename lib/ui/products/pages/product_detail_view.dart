@@ -29,7 +29,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
         title: const Text('Product', style: TextStyle(color: Colors.white)),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
@@ -53,13 +53,25 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(7),
-                    child: Image.network(
-                      product.images[index],
-                      width: 65,
-                      height: 66,
-                      fit: BoxFit.cover,
+                  child: Container(
+                    width: 65,
+                    height: 66,
+                    decoration: BoxDecoration(
+                      color: index == imageChoosed ? Colors.white : null,
+                      borderRadius: BorderRadius.circular(10) ,
+                      border:
+                          index == imageChoosed
+                              ? Border.all(color: Colors.white, width: 4)
+                              : null,
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(7),
+                      child: Image.network(
+                        product.images[index],
+                        width: index == imageChoosed ? 63 : 65,
+                        height: index == imageChoosed ? 64 : 66,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
