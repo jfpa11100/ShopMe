@@ -1,3 +1,16 @@
+#idx
+.idx
+idx
+/idx
+/.idx
+
+#vscode
+.vscode
+vscode
+/vscode
+/.vscode
+
+
 # Miscellaneous
 *.class
 *.log
