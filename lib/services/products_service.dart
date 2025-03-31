@@ -6,4 +6,8 @@ class ProductsService {
   Future<List<Product>?> getAllProducts() async {
     return _api.getAllProducts();
   }
+
+  Future<List<Product>?> getProductsByCategory(int id) async {
+    return _api.getProductsByCategory(id);
+  }
 }
