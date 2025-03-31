@@ -19,7 +19,9 @@ class ProductItem extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProductDetailView(product: product,)),
+                MaterialPageRoute(
+                  builder: (context) => ProductDetailView(product: product),
+                ),
               );
             },
             child: Column(
@@ -39,6 +41,14 @@ class ProductItem extends StatelessWidget {
                             width: constraints.maxWidth * 0.92,
                             height: constraints.maxHeight * 0.75,
                             fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Image(
+                                image: const AssetImage('images/noImage.png'),
+                                width: constraints.maxWidth * 0.92,
+                                height: constraints.maxHeight * 0.75,
+                                fit: BoxFit.cover,
+                              );
+                            },
                           ),
                         ),
                       ),

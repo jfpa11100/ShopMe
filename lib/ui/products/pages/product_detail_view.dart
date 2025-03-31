@@ -40,6 +40,14 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 width: 290,
                 height: 270,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image(
+                    image: const AssetImage('images/noImage.png'),
+                    width: 290,
+                    height: 270,
+                    fit: BoxFit.cover,
+                  );
+                },
               ),
             ),
           ),
@@ -74,6 +82,14 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                         width: index == imageChoosed ? 63 : 65,
                         height: index == imageChoosed ? 64 : 66,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image(
+                            image: const AssetImage('images/noImage.png'),
+                            width: index == imageChoosed ? 63 : 65,
+                            height: index == imageChoosed ? 64 : 66,
+                            fit: BoxFit.cover,
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -140,7 +156,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                 ),
                                 child: Container(
                                   margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                                  height: 250,
+                                  height: 270,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
