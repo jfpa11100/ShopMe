@@ -40,6 +40,8 @@ class _ShoppingListState extends State<ShoppingList> {
                   Consumer<CartProvider>(
                     builder: (context, cartProvider, child) {
                       return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         scrollDirection: Axis.vertical,
                         itemCount: cartProvider.shoppingList.length,
@@ -59,6 +61,7 @@ class _ShoppingListState extends State<ShoppingList> {
           ),
           Container(
             width: double.infinity,
+            color: Colors.black,
             margin: const EdgeInsets.symmetric(horizontal: 10),
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
