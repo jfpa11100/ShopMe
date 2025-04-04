@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/product.dart';
+import 'package:myapp/providers/shopping_list_provider.dart';
+import 'package:provider/provider.dart';
 
-class FavoriteButton extends StatefulWidget {
-  const FavoriteButton({
+class AddToCartBtn extends StatefulWidget {
+  const AddToCartBtn({
     super.key,
     required this.parentWidth,
     required this.parentHeight,
@@ -13,14 +15,16 @@ class FavoriteButton extends StatefulWidget {
   final Product product;
 
   @override
-  State<FavoriteButton> createState() => _FavoriteButtonState();
+  State<AddToCartBtn> createState() => _AddToCartBtnState();
 }
 
-class _FavoriteButtonState extends State<FavoriteButton> {
-  bool isFavorite = false;
-
+class _AddToCartBtnState extends State<AddToCartBtn> {
   @override
   Widget build(BuildContext context) {
+    Product product = widget.product;
+    final cartProvider = Provider.of<CartProvider>(context);
+    final isInCart = cartProvider.isInCart(product);
+
     final boxShadow = BoxShadow(
       color: const Color(0xFF9B9B9B),
       blurRadius: widget.parentWidth * 0.0001,
@@ -34,17 +38,16 @@ class _FavoriteButtonState extends State<FavoriteButton> {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: const Color(0xFFFFFFFF),
-        boxShadow: [
-          boxShadow,
-        ],
+        boxShadow: [boxShadow],
       ),
       child: IconButton(
-        color: (isFavorite) ? const Color(0xFFDB3022) : const Color(0xFF9B9B9B),
-        icon: (isFavorite) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+        color: (isInCart) ? const Color.fromRGBO(26, 26, 26, 0.950) : const Color(0xFF9B9B9B),
+        icon:
+            (isInCart)
+                ? const Icon(Icons.shopping_cart)
+                : const Icon(Icons.shopping_cart_outlined),
         onPressed: () {
-          setState(() {
-            isFavorite = !isFavorite;
-          });
+          cartProvider.toggleAddToCart(product);
         },
       ),
     );

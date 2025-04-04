@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/products/widgets/favorite_button.dart';
 import 'package:myapp/models/product.dart';
 import 'package:myapp/ui/products/pages/product_detail_view.dart';
+import 'package:myapp/ui/products/widgets/add_to_cart_button.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -19,7 +19,9 @@ class ProductItem extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProductDetailView(product: product,)),
+                MaterialPageRoute(
+                  builder: (context) => ProductDetailView(product: product),
+                ),
               );
             },
             child: Column(
@@ -39,13 +41,21 @@ class ProductItem extends StatelessWidget {
                             width: constraints.maxWidth * 0.92,
                             height: constraints.maxHeight * 0.75,
                             fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Image(
+                                image: const AssetImage('images/noImage.png'),
+                                width: constraints.maxWidth * 0.92,
+                                height: constraints.maxHeight * 0.75,
+                                fit: BoxFit.cover,
+                              );
+                            },
                           ),
                         ),
                       ),
                       Positioned(
                         left: constraints.maxWidth / 1.32,
                         top: constraints.maxHeight / 1.56,
-                        child: FavoriteButton(
+                        child: AddToCartBtn(
                           parentWidth: constraints.maxWidth,
                           parentHeight: constraints.maxHeight,
                           product: product,

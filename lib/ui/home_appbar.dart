@@ -10,7 +10,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: Builder(
         builder: (context) {
           return IconButton(
-            icon: const Icon(Icons.shopping_cart, color: Colors.white),
+            icon: const Icon(Icons.shopping_cart_checkout, color: Colors.white),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },

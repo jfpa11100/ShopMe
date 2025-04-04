@@ -4,7 +4,7 @@ import 'package:myapp/services/categories_service.dart';
 import 'package:myapp/ui/categories/widgets/all_categories.dart';
 import 'package:myapp/ui/products/widgets/all_products.dart';
 import 'package:myapp/ui/home_appbar.dart';
-import 'package:myapp/ui/shopping_list.dart';
+import 'package:myapp/ui/products/widgets/cart.dart';
 import 'package:myapp/models/product.dart';
 import 'package:myapp/services/products_service.dart';
 
@@ -44,7 +44,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  final List<Product> shoppingList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -75,21 +74,4 @@ class _HomePageState extends State<HomePage> {
       drawer: ShoppingList(),
     );
   }
-
-  // List<Widget> getShoppingList() {
-  //   List<Widget> list = [];
-  //   for (final item in shoppingList) {
-  //     list.add(
-  //       ListTile(
-  //         title: const Text('Home'),
-  //         selected: _selectedIndex == 0,
-  //         onTap: () {
-  //           _onItemTapped(0);
-  //           Navigator.pop(context);
-  //         },
-  //       ),
-  //     );
-  //   }
-  //   return list;
-  // }
 }

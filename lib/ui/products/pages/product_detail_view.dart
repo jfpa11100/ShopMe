@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/product.dart';
+import 'package:myapp/providers/shopping_list_provider.dart';
+import 'package:myapp/ui/products/widgets/full_width_btn.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailView extends StatefulWidget {
   final Product product;
@@ -21,6 +24,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   @override
   Widget build(BuildContext context) {
     Product product = widget.product;
+    final cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -40,6 +44,14 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 width: 290,
                 height: 270,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image(
+                    image: const AssetImage('images/noImage.png'),
+                    width: 290,
+                    height: 270,
+                    fit: BoxFit.cover,
+                  );
+                },
               ),
             ),
           ),
@@ -74,6 +86,14 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                         width: index == imageChoosed ? 63 : 65,
                         height: index == imageChoosed ? 64 : 66,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image(
+                            image: const AssetImage('images/noImage.png'),
+                            width: index == imageChoosed ? 63 : 65,
+                            height: index == imageChoosed ? 64 : 66,
+                            fit: BoxFit.cover,
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -88,20 +108,18 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20.0,
-                    vertical: 15,
+                    vertical: 10,
                   ),
                   child: ProductTitlePrice(product: product),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20.0,
-                    vertical: 15,
+                    vertical: 10,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,12 +153,13 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                             builder: (BuildContext context) {
                               return Padding(
                                 padding: const EdgeInsets.symmetric(
-                                  vertical: 15,
-                                  horizontal: 20,
+                                  vertical: 15.0,
+                                  horizontal: 20.0,
                                 ),
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                                  height: 250,
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 15.0,
+                                  ),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -171,26 +190,16 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 5.0,
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(214, 243, 162, 1),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        'Add to list',
-                        style: TextStyle(color: Colors.black, fontSize: 15),
-                      ),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                    vertical: 0.0,
+                  ),
+                  child: FullWidthBtn(
+                    text: 'Add to cart',
+                    onPressedAction: () {
+                      cartProvider.toggleAddToCart(product);
+                    },
                   ),
                 ),
               ],
