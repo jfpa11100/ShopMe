@@ -7,6 +7,7 @@ import 'package:myapp/ui/home_appbar.dart';
 import 'package:myapp/ui/products/widgets/cart.dart';
 import 'package:myapp/models/product.dart';
 import 'package:myapp/services/products_service.dart';
+import 'package:myapp/ui/products/widgets/search_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 7.0),
-            child: SearchBar(hintText: 'Search products'),
+            child: SearchBarProducts(),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(7.0, 10.0, 7.0, 5.0),
