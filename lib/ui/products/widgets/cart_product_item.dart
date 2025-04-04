@@ -26,12 +26,12 @@ class CartProductItem extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.red,
+          color: const Color.fromRGBO(250, 205, 202, 1.0),
         ),
         alignment: Alignment.centerRight,
         child: const Icon(
           Icons.delete_outline_outlined,
-          color: Colors.grey,
+          color: Colors.red,
           size: 30,
         ),
       ),
