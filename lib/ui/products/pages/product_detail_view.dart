@@ -199,6 +199,9 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     text: 'Add to cart',
                     onPressedAction: () {
                       cartProvider.toggleAddToCart(product);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Product added to from cart')),
+                      );
                     },
                   ),
                 ),

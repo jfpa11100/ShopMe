@@ -41,6 +41,7 @@ class _AddToCartBtnState extends State<AddToCartBtn> {
         boxShadow: [boxShadow],
       ),
       child: IconButton(
+        visualDensity: VisualDensity.comfortable,
         color: (isInCart) ? const Color.fromRGBO(26, 26, 26, 0.950) : const Color(0xFF9B9B9B),
         icon:
             (isInCart)
