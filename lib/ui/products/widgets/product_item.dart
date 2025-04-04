@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/products/widgets/favorite_button.dart';
 import 'package:myapp/models/product.dart';
 import 'package:myapp/ui/products/pages/product_detail_view.dart';
+import 'package:myapp/ui/products/widgets/add_to_cart_button.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -55,7 +55,7 @@ class ProductItem extends StatelessWidget {
                       Positioned(
                         left: constraints.maxWidth / 1.32,
                         top: constraints.maxHeight / 1.56,
-                        child: FavoriteButton(
+                        child: AddToCartBtn(
                           parentWidth: constraints.maxWidth,
                           parentHeight: constraints.maxHeight,
                           product: product,
