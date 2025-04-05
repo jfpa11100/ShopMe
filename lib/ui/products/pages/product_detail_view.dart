@@ -112,14 +112,15 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20.0,
-                    vertical: 10,
+                    vertical: 20.0,
                   ),
                   child: ProductTitlePrice(product: product),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0,
-                    vertical: 10,
+                  padding: const EdgeInsets.only(
+                    left: 20.0,
+                    right: 20.0,
+                    bottom: 10.0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,6 +149,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                         ),
                         onPressed: () {
                           showModalBottomSheet(
+                            useSafeArea: false,
                             backgroundColor: Color.fromRGBO(26, 26, 26, 0.950),
                             context: context,
                             builder: (BuildContext context) {
@@ -157,6 +159,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                   horizontal: 20.0,
                                 ),
                                 child: Container(
+                                  height: 230,
                                   margin: EdgeInsets.symmetric(
                                     horizontal: 15.0,
                                   ),
@@ -200,7 +203,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     onPressedAction: () {
                       cartProvider.toggleAddToCart(product);
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Product added to from cart')),
+                        SnackBar(content: Text('Product added to cart')),
                       );
                     },
                   ),
@@ -237,7 +240,6 @@ class ProductTitlePrice extends StatelessWidget {
             overflow: TextOverflow.visible,
           ),
         ),
-        const SizedBox(width: 20),
         Text(
           '\$ ${product.price.toString()}',
           style: TextStyle(
