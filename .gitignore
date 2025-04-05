@@ -10,6 +10,10 @@ vscode
 /vscode
 /.vscode
 
+#android
+android/app/.cxx
+/android/app/.cxx
+.android/app/.cxx
 
 # Miscellaneous
 *.class
