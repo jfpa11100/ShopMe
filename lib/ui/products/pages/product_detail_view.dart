@@ -159,7 +159,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                   horizontal: 20.0,
                                 ),
                                 child: Container(
-                                  height: 230,
+                                  height: 295,
                                   margin: EdgeInsets.symmetric(
                                     horizontal: 15.0,
                                   ),
