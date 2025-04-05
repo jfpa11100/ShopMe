@@ -44,7 +44,14 @@ class _CategoryViewState extends State<CategoryView> {
       backgroundColor: Colors.black,
       body:
           areProductsLoaded
-              ? Center(child: AllProducts(products: products))
+              ? products.isNotEmpty
+                  ? Center(child: AllProducts(products: products))
+                  : Center(
+                    child: Text(
+                      'No products found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
               : const Center(child: CircularProgressIndicator()),
     );
   }

@@ -45,7 +45,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,13 +60,27 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.fromLTRB(7.0, 10.0, 7.0, 5.0),
             child:
                 areCategoriesLoaded
-                    ? AllCategories(categories: categories)
-                    : const Center(child: CircularProgressIndicator()),
+              ? categories.isNotEmpty
+                  ? Center(child: AllCategories(categories: categories))
+                  : Center(
+                    child: Text(
+                      'No categories found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+              : const Center(child: CircularProgressIndicator()),
           ),
           Expanded(
             child:
                 areProductsLoaded
-                    ? Center(child: AllProducts(products: products))
+                    ? products.isNotEmpty
+                        ? Center(child: AllProducts(products: products))
+                        : Center(
+                          child: Text(
+                            'No products. Make sure you are conected to interfet and reload the app',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
                     : const Center(child: CircularProgressIndicator()),
           ),
         ],
