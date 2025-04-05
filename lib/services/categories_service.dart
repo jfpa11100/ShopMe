@@ -5,7 +5,8 @@ class CategoriesService {
   final _api = CategoriesApi();
   Future<List<Category>?> getAllCategories() async {
     try {
-      return _api.getAllCategories();
+      final categories = await _api.getAllCategories();
+      return categories;
     } catch (e) {
       return [];
     }

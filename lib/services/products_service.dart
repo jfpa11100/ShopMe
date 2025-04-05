@@ -5,7 +5,8 @@ class ProductsService {
   final _api = ProductsApi();
   Future<List<Product>?> getAllProducts() async {
     try {
-      return _api.getAllProducts();
+      final products = await _api.getAllProducts();
+      return products;
     } catch (e) {
       return [];
     }
@@ -13,7 +14,8 @@ class ProductsService {
 
   Future<List<Product>?> getProductsByCategory(int id) async {
     try {
-      return _api.getProductsByCategory(id);
+      final products = await _api.getProductsByCategory(id);
+      return products;
     } catch (e) {
       return null;
     }
